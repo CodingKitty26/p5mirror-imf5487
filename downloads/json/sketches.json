@@ -1,0 +1,411 @@
+[
+  {
+    "name": "Body Tracking HW",
+    "_id": "6Mb6vROaW",
+    "files": [
+      {
+        "name": "root",
+        "content": "",
+        "children": [
+          "66147d416561371c1b801388",
+          "66147d416561371c1b801389",
+          "66147d416561371c1b80138a"
+        ],
+        "fileType": "folder",
+        "_id": "66147d416561371c1b801387",
+        "isSelectedFile": false,
+        "createdAt": "2024-04-09T00:13:02.849Z",
+        "updatedAt": "2024-04-09T00:13:02.849Z",
+        "id": "66147d416561371c1b801387"
+      },
+      {
+        "name": "sketch.js",
+        "content": "// Copyright (c) 2018 ml5\n//\n// This software is released under the MIT License.\n// https://opensource.org/licenses/MIT\n\n/* ===\nml5 Example\nPoseNet example using p5.js\n\nModified based on Kyle McDonald's ml5 poseNet sketch:\nhttps://editor.p5js.org/kylemcdonald/sketches/H1OoUd9h7\n=== */\n\nlet video;\nlet poseNet;\nlet poses = [];\n\n/*\nSee below link for complete list of available keypoints:\nhttps://github.com/tensorflow/tfjs-models/tree/master/posenet#keypoints\n*/\nlet keypointIndex = 0;\n\nfunction setup() {\n  createCanvas(600, 400);\n  video = createCapture(VIDEO);\n  video.size(width, height);\n\n  // detection\n  poseNet = ml5.poseNet(video, modelReady);\n  poseNet.on('pose', function(results) {\n    poses = results;\n  });\n  // Hide the video element, and just show the canvas\n  video.hide();\n}\n\nfunction modelReady() {\n  console.log('model ready');\n}\n\nfunction draw() {\n  image(video, 0, 0, width, height);\n\n  drawKeyPoints();\n}\n\n  // Loop through all the poses detected\nfunction drawKeyPoints() {  \n  for (let i = 0; i < poses.length; i++) {\n    let pose = poses[i].pose;\n    let leftEar = pose.leftEar;\n    let rightEar = pose.rightEar;\n    \n    //try changing to value of keypointIndex in line 22!\n    let xpos = pose.keypoints[keypointIndex].position.x;\n    let ypos = pose.keypoints[keypointIndex].position.y;\n    \n    fill(255, 0, 0);\n    ellipse(int(xpos), int(ypos), 50, 50);\n    \n  \n    fill(255, 0, 0);\n    ellipse(int(xpos), int(ypos), 20, 50);\n    \n  \n  }\n}\n\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "66147d416561371c1b801389",
+        "isSelectedFile": true,
+        "createdAt": "2024-04-09T00:13:02.849Z",
+        "updatedAt": "2024-04-09T00:13:02.849Z",
+        "id": "66147d416561371c1b801389"
+      },
+      {
+        "name": "index.html",
+        "content": "<!DOCTYPE html>\n<html>\n  <head>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js\"></script>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js\"></script>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.sound.min.js\"></script>\n    <script src=\"https://unpkg.com/ml5@0.1.3/dist/ml5.min.js\"></script>    \n    <link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\">\n    <meta charset=\"utf-8\" />\n\n  </head>\n  <body>\n    <script src=\"sketch.js\"></script>\n  </body>\n</html>\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "66147d416561371c1b801388",
+        "isSelectedFile": false,
+        "createdAt": "2024-04-09T00:13:02.849Z",
+        "updatedAt": "2024-04-09T00:13:02.849Z",
+        "id": "66147d416561371c1b801388"
+      },
+      {
+        "name": "style.css",
+        "content": "html, body {\n  margin: 0;\n  padding: 0;\n}\ncanvas {\n  display: block;\n}\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "66147d416561371c1b80138a",
+        "isSelectedFile": false,
+        "createdAt": "2024-04-09T00:13:02.849Z",
+        "updatedAt": "2024-04-09T00:13:02.849Z",
+        "id": "66147d416561371c1b80138a"
+      }
+    ],
+    "createdAt": "2024-04-08T23:26:59.596Z",
+    "updatedAt": "2024-04-09T00:13:02.849Z",
+    "id": "6Mb6vROaW"
+  },
+  {
+    "name": "Cherry Blossoms Blowing",
+    "_id": "zlitcRZVBS",
+    "files": [
+      {
+        "name": "root",
+        "content": "",
+        "children": [
+          "661457a7d050c56f9689b79e",
+          "661457a7d050c56f9689b79f",
+          "661457a7d050c56f9689b7a0"
+        ],
+        "fileType": "folder",
+        "_id": "661457a7d050c56f9689b79d",
+        "updatedAt": "2024-04-08T21:37:47.291Z",
+        "createdAt": "2024-04-08T21:37:47.291Z",
+        "isSelectedFile": false,
+        "id": "661457a7d050c56f9689b79d"
+      },
+      {
+        "name": "sketch.js",
+        "content": "//original sketch: https://editor.p5js.org/abrock/sketches/SyyaEusom by abrock\n//finding out time: https://editor.p5js.org/lberdugo/sketches/BJG10p4dZ\n  \nlet petals = []; //array function that holds cherry blossom petals\n\nfunction setup() {\n  createCanvas(1980, 1080);\n  //stroke(127, 63, 120);\n  fill(255, 230, 243);\n  noStroke();\n} //draws background\n\n\nfunction draw() {\n  background(153, 235, 255);\n  let t = frameCount / 100; //updates time\n\n  for (var i = 0; i < 10; i++) {\n    petals.push(new petal()); //append petal object\n  } //random number of petals each frame\n\n  //loop through petals\n  for (let blossom of petals) {\n    blossom.update(t); //update petal position\n    blossom.display(); //draw petal\n  }\n}\n//petal class\nfunction petal() {\n  // initialize coordinates\n  this.posX = 0;\n  this.posY = random(-50, 0);\n  this.initialangle = random(10, 0 * PI);\n  this.size = random(5, 10);\n  //ellipse(10, 20, 20, 7);\n\n  this.radius = sqrt(random(pow(width / 1, 2)));\n  this.update = function(time) {\n    // x position follows a circle\n    let w = 0.1; // angular speed\n    let angle = w * time + this.initialangle;\n    this.posX = width / 1 + this.radius * tan(angle); //calculates tangent of the angle the petals fall\n    this.posY += pow(this.size, 0.5);\n\n    // delete petal if past end of screen\n    if (this.posY > height) {\n      let index = petals.indexOf(this);\n      petals.splice(index, 1);\n    }\n  };\n  this.display = function() {\n    ellipse(this.posX, this.posY, this.size);\n  };\n}\n\n\n// Toggle between full screen and windowed mode\nfunction toggleFullscreen() {\n  let fs = fullscreen();\n  fullscreen(!fs);\n  if (!fs) {\n    fullscreenBtn.html('Windowed'); // Change button text to \"Windowed\" when in full screen\n  } else {\n    fullscreenBtn.html('Full Screen'); // Change back to \"Full Screen\" when exiting full screen\n  }\n}\n\n// Adjust canvas size dynamically when the window is resized\nfunction windowResized() {\n  resizeCanvas(windowWidth, windowHeight);\n}",
+        "children": [],
+        "fileType": "file",
+        "_id": "661457a7d050c56f9689b79f",
+        "updatedAt": "2024-04-08T21:37:47.291Z",
+        "createdAt": "2024-04-08T21:37:47.291Z",
+        "isSelectedFile": true,
+        "id": "661457a7d050c56f9689b79f"
+      },
+      {
+        "name": "index.html",
+        "content": "<!DOCTYPE html>\n<html>\n  <head>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js\"></script>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js\"></script>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.sound.min.js\"></script>\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\">\n    <meta charset=\"utf-8\" />\n\n  </head>\n  <body>\n    <script src=\"sketch.js\"></script>\n  </body>\n</html>\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "661457a7d050c56f9689b79e",
+        "updatedAt": "2024-04-08T21:37:47.291Z",
+        "createdAt": "2024-04-08T21:37:47.291Z",
+        "isSelectedFile": false,
+        "id": "661457a7d050c56f9689b79e"
+      },
+      {
+        "name": "style.css",
+        "content": "html, body {\n  margin: 0;\n  padding: 0;\n}\ncanvas {\n  display: block;\n}\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "661457a7d050c56f9689b7a0",
+        "updatedAt": "2024-04-08T21:37:47.291Z",
+        "createdAt": "2024-04-08T21:37:47.291Z",
+        "isSelectedFile": false,
+        "id": "661457a7d050c56f9689b7a0"
+      }
+    ],
+    "createdAt": "2024-04-08T20:46:33.035Z",
+    "updatedAt": "2024-04-08T21:37:47.291Z",
+    "id": "zlitcRZVBS"
+  },
+  {
+    "name": "Generative Art",
+    "_id": "MYwmZ15pW",
+    "updatedAt": "2024-04-14T23:23:06.071Z",
+    "files": [
+      {
+        "name": "root",
+        "content": "",
+        "children": [
+          "661c1fefc3cc7957a6215131",
+          "661c1fefc3cc7957a6215130",
+          "661c1fefc3cc7957a6215132"
+        ],
+        "fileType": "folder",
+        "_id": "661c1fefc3cc7957a6215133",
+        "isSelectedFile": false,
+        "createdAt": "2024-04-14T23:23:06.071Z",
+        "updatedAt": "2024-04-14T23:23:06.071Z",
+        "id": "661c1fefc3cc7957a6215133"
+      },
+      {
+        "name": "sketch.js",
+        "content": "var WIDTH = 400;\nvar HEIGHT = 400;\n\n\nfunction setup() {\n  createCanvas(WIDTH, HEIGHT);\n}\n\nfunction draw() {\n  background(100);\n  noFill();\n\n  var penSize = 4;\n  strokeWeight(penSize);\n\n  var diameter = 100;\n\n  // Black \n  stroke(\"pink\");\n  circle(WIDTH / 2, HEIGHT / 2 - diameter/4, diameter);\n\n  // Blue \n  stroke(0, 0, 222);\n  circle(WIDTH / 2 - diameter - 2 * penSize, HEIGHT / 2 - diameter/4, diameter);\n\n  // Red \n  stroke(\"purple\");\n  circle(WIDTH / 2 + diameter + 2 * penSize, HEIGHT / 2 - diameter/4, diameter);\n  \n  // Yellow \n  stroke(255,255,0,100);\n  circle(WIDTH / 2 - diameter/2 - penSize, HEIGHT / 2 + diameter/4, diameter);\n  \n  // Green \n  stroke(0,255,0,100);\n  circle(WIDTH / 2 + diameter/2 + penSize, HEIGHT / 2 + diameter/4, diameter);\n  \n  // blue 2 \n  stroke(0 ,0, 222);\n  arc(WIDTH / 2 - diameter - 2 * penSize, HEIGHT / 2 - diameter/4, diameter,diameter,-PI/4,PI/4);\n  \n  // Black 2\n  stroke(\"pink\");\n  arc(WIDTH / 2, HEIGHT / 2 - diameter/4, diameter,diameter, -PI/4,PI/4);\n  arc(WIDTH / 2, HEIGHT / 2 - diameter/4, diameter,diameter, PI/2,2*PI/3);\n  \n  //  Red 2\n  stroke(\"purple\");\n  arc(WIDTH / 2 + diameter + 2 * penSize, HEIGHT / 2 - diameter/4, diameter,diameter,PI/2,2*PI/3);\n  \n  \n\n  \n}",
+        "children": [],
+        "fileType": "file",
+        "_id": "661c1fefc3cc7957a6215130",
+        "isSelectedFile": true,
+        "createdAt": "2024-04-14T23:23:06.071Z",
+        "updatedAt": "2024-04-14T23:23:06.071Z",
+        "id": "661c1fefc3cc7957a6215130"
+      },
+      {
+        "name": "index.html",
+        "content": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.1/p5.js\"></script>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.1/addons/p5.sound.min.js\"></script>\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\">\n    <meta charset=\"utf-8\" />\n\n  </head>\n  <body>\n    <main>\n    </main>\n    <script src=\"sketch.js\"></script>\n  </body>\n</html>\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "661c1fefc3cc7957a6215131",
+        "isSelectedFile": false,
+        "createdAt": "2024-04-14T23:23:06.071Z",
+        "updatedAt": "2024-04-14T23:23:06.071Z",
+        "id": "661c1fefc3cc7957a6215131"
+      },
+      {
+        "name": "style.css",
+        "content": "html, body {\n  margin: 0;\n  padding: 0;\n}\ncanvas {\n  display: block;\n}\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "661c1fefc3cc7957a6215132",
+        "isSelectedFile": false,
+        "createdAt": "2024-04-14T23:23:06.071Z",
+        "updatedAt": "2024-04-14T23:23:06.071Z",
+        "id": "661c1fefc3cc7957a6215132"
+      }
+    ],
+    "createdAt": "2024-04-14T22:52:13.563Z",
+    "id": "MYwmZ15pW"
+  },
+  {
+    "name": "ims01 - Isadora",
+    "_id": "cpZEbWnnf",
+    "files": [
+      {
+        "name": "root",
+        "content": "",
+        "children": [
+          "6602ce4b48d56f4e87aca07f",
+          "6602ce4b48d56f4e87aca080",
+          "6602ce4b48d56f4e87aca081"
+        ],
+        "fileType": "folder",
+        "_id": "6602ce4b48d56f4e87aca07e",
+        "createdAt": "2024-04-09T13:28:34.800Z",
+        "updatedAt": "2024-04-09T13:28:34.800Z",
+        "id": "6602ce4b48d56f4e87aca07e"
+      },
+      {
+        "name": "sketch.js",
+        "content": "//orignal link: https://editor.p5js.org/p5/sketches/Simulate:_Flocking\n\n/*\n * @name Flocking\n * @arialabel Groups of little grey triangles moving across a darker grey background\n * @description Demonstration of Craig Reynolds' \"Flocking\" behavior.\n * See: http://www.red3d.com/cwr/\n * Rules: Cohesion, Separation, Alignment\n * (from <a href=\"http://natureofcode.com\">natureofcode.com</a>).\n *  Drag mouse to add boids into the system.\n */\n\n\nlet flock;\n\nfunction setup() {\n  createCanvas(640, 360);\n  createP(\"Drag the mouse to generate new boids.\");\n\n  flock = new Flock();\n  // Add an initial set of boids into the system\n  for (let i = 0; i < 100; i++) {\n    let b = new Boid(width / 2,height / 2);\n    flock.addBoid(b);\n  }\n}\n\nfunction draw() {\n  background(51);\n  flock.run();\n}\n\n// Add a new boid into the System\nfunction mouseDragged() {\n  flock.addBoid(new Boid(mouseX, mouseY));\n}\n\n// The Nature of Code\n// Daniel Shiffman\n// http://natureofcode.com\n\n// Flock object\n// Does very little, simply manages the array of all the boids\n\nfunction Flock() {\n  // An array for all the boids\n  this.boids = []; // Initialize the array\n}\n\nFlock.prototype.run = function() {\n  for (let i = 0; i < this.boids.length; i++) {\n    this.boids[i].run(this.boids);  // Passing the entire list of boids to each boid individually\n  }\n}\n\nFlock.prototype.addBoid = function(b) {\n  this.boids.push(b);\n}\n\n// The Nature of Code\n// Daniel Shiffman\n// http://natureofcode.com\n\n// Boid class\n// Methods for Separation, Cohesion, Alignment added\n\nfunction Boid(x, y) {\n  this.acceleration = createVector(0, 0);\n  this.velocity = createVector(random(-1, 1), random(-1, 1));\n  this.position = createVector(x, y);\n  this.r = 3.0;\n  this.maxspeed = 3;    // Maximum speed\n  this.maxforce = 0.05; // Maximum steering force\n}\n\nBoid.prototype.run = function(boids) {\n  this.flock(boids);\n  this.update();\n  this.borders();\n  this.render();\n}\n\nBoid.prototype.applyForce = function(force) {\n  // We could add mass here if we want A = F / M\n  this.acceleration.add(force);\n}\n\n// We accumulate a new acceleration each time based on three rules\nBoid.prototype.flock = function(boids) {\n  let sep = this.separate(boids);   // Separation\n  let ali = this.align(boids);      // Alignment\n  let coh = this.cohesion(boids);   // Cohesion\n  // Arbitrarily weight these forces\n  sep.mult(1.5);\n  ali.mult(1.0);\n  coh.mult(1.0);\n  // Add the force vectors to acceleration\n  this.applyForce(sep);\n  this.applyForce(ali);\n  this.applyForce(coh);\n}\n\n// Method to update location\nBoid.prototype.update = function() {\n  // Update velocity\n  this.velocity.add(this.acceleration);\n  // Limit speed\n  this.velocity.limit(this.maxspeed);\n  this.position.add(this.velocity);\n  // Reset accelertion to 0 each cycle\n  this.acceleration.mult(0);\n}\n\n// A method that calculates and applies a steering force towards a target\n// STEER = DESIRED MINUS VELOCITY\nBoid.prototype.seek = function(target) {\n  let desired = p5.Vector.sub(target,this.position);  // A vector pointing from the location to the target\n  // Normalize desired and scale to maximum speed\n  desired.normalize();\n  desired.mult(this.maxspeed);\n  // Steering = Desired minus Velocity\n  let steer = p5.Vector.sub(desired,this.velocity);\n  steer.limit(this.maxforce);  // Limit to maximum steering force\n  return steer;\n}\n\nBoid.prototype.render = function() {\n  // Draw a triangle rotated in the direction of velocity\n  let theta = this.velocity.heading() + radians(90);\n  fill(127);\n  stroke(200);\n  push();\n  translate(this.position.x, this.position.y);\n  rotate(theta);\n  beginShape();\n  vertex(0, -this.r * 2);\n  vertex(-this.r, this.r * 2);\n  vertex(this.r, this.r * 2);\n  endShape(CLOSE);\n  pop();\n}\n\n// Wraparound\nBoid.prototype.borders = function() {\n  if (this.position.x < -this.r)  this.position.x = width + this.r;\n  if (this.position.y < -this.r)  this.position.y = height + this.r;\n  if (this.position.x > width + this.r) this.position.x = -this.r;\n  if (this.position.y > height + this.r) this.position.y = -this.r;\n}\n\n// Separation\n// Method checks for nearby boids and steers away\nBoid.prototype.separate = function(boids) {\n  let desiredseparation = 25.0;\n  let steer = createVector(0, 0);\n  let count = 0;\n  // For every boid in the system, check if it's too close\n  for (let i = 0; i < boids.length; i++) {\n    let d = p5.Vector.dist(this.position,boids[i].position);\n    // If the distance is greater than 0 and less than an arbitrary amount (0 when you are yourself)\n    if ((d > 0) && (d < desiredseparation)) {\n      // Calculate vector pointing away from neighbor\n      let diff = p5.Vector.sub(this.position, boids[i].position);\n      diff.normalize();\n      diff.div(d);        // Weight by distance\n      steer.add(diff);\n      count++;            // Keep track of how many\n    }\n  }\n  // Average -- divide by how many\n  if (count > 0) {\n    steer.div(count);\n  }\n\n  // As long as the vector is greater than 0\n  if (steer.mag() > 0) {\n    // Implement Reynolds: Steering = Desired - Velocity\n    steer.normalize();\n    steer.mult(this.maxspeed);\n    steer.sub(this.velocity);\n    steer.limit(this.maxforce);\n  }\n  return steer;\n}\n\n// Alignment\n// For every nearby boid in the system, calculate the average velocity\nBoid.prototype.align = function(boids) {\n  let neighbordist = 50;\n  let sum = createVector(0,0);\n  let count = 0;\n  for (let i = 0; i < boids.length; i++) {\n    let d = p5.Vector.dist(this.position,boids[i].position);\n    if ((d > 0) && (d < neighbordist)) {\n      sum.add(boids[i].velocity);\n      count++;\n    }\n  }\n  if (count > 0) {\n    sum.div(count);\n    sum.normalize();\n    sum.mult(this.maxspeed);\n    let steer = p5.Vector.sub(sum, this.velocity);\n    steer.limit(this.maxforce);\n    return steer;\n  } else {\n    return createVector(0, 0);\n  }\n}\n\n// Cohesion\n// For the average location (i.e. center) of all nearby boids, calculate steering vector towards that location\nBoid.prototype.cohesion = function(boids) {\n  let neighbordist = 50;\n  let sum = createVector(0, 0);   // Start with empty vector to accumulate all locations\n  let count = 0;\n  for (let i = 0; i < boids.length; i++) {\n    let d = p5.Vector.dist(this.position,boids[i].position);\n    if ((d > 0) && (d < neighbordist)) {\n      sum.add(boids[i].position); // Add location\n      count++;\n    }\n  }\n  if (count > 0) {\n    sum.div(count);\n    return this.seek(sum);  // Steer towards the location\n  } else {\n    return createVector(0, 0);\n  }\n}\n\n\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "6602ce4b48d56f4e87aca080",
+        "isSelectedFile": true,
+        "createdAt": "2024-04-09T13:28:34.800Z",
+        "updatedAt": "2024-04-09T13:28:34.800Z",
+        "id": "6602ce4b48d56f4e87aca080"
+      },
+      {
+        "name": "index.html",
+        "content": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.2/p5.js\"></script>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.2/addons/p5.sound.min.js\"></script>\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\">\n    <meta charset=\"utf-8\" />\n\n  </head>\n  <body>\n    <main>\n    </main>\n    <script src=\"sketch.js\"></script>\n  </body>\n</html>\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "6602ce4b48d56f4e87aca07f",
+        "createdAt": "2024-04-09T13:28:34.800Z",
+        "updatedAt": "2024-04-09T13:28:34.800Z",
+        "id": "6602ce4b48d56f4e87aca07f"
+      },
+      {
+        "name": "style.css",
+        "content": "html, body {\n  margin: 0;\n  padding: 0;\n}\ncanvas {\n  display: block;\n}\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "6602ce4b48d56f4e87aca081",
+        "createdAt": "2024-04-09T13:28:34.800Z",
+        "updatedAt": "2024-04-09T13:28:34.800Z",
+        "id": "6602ce4b48d56f4e87aca081"
+      }
+    ],
+    "createdAt": "2024-03-26T13:31:56.788Z",
+    "updatedAt": "2024-04-09T13:28:34.800Z",
+    "id": "cpZEbWnnf"
+  },
+  {
+    "name": "ims02 - Isadora",
+    "_id": "9Y4-HpXAu",
+    "files": [
+      {
+        "name": "root",
+        "content": "",
+        "children": [
+          "660b1fc5be781d3659e4e225",
+          "660b1fc5be781d3659e4e226",
+          "660b1fc5be781d3659e4e227"
+        ],
+        "fileType": "folder",
+        "_id": "660b1fc5be781d3659e4e224",
+        "createdAt": "2024-04-09T13:28:23.695Z",
+        "updatedAt": "2024-04-09T13:28:23.695Z",
+        "isSelectedFile": false,
+        "id": "660b1fc5be781d3659e4e224"
+      },
+      {
+        "name": "sketch.js",
+        "content": "///Isadora Fleming Homework 2\n//orignal link: https://editor.p5js.org/p5/sketches/Simulate:_Flocking\n\n/*\n * @name Flocking\n * @arialabel Groups of little grey triangles moving across a darker grey background\n * @description Demonstration of Craig Reynolds' \"Flocking\" behavior.\n * See: http://www.red3d.com/cwr/\n * Rules: Cohesion, Separation, Alignment\n * (from <a href=\"http://natureofcode.com\">natureofcode.com</a>).\n *  Drag mouse to add boids into the system.\n */\n\nfunction touchStarted () {\n  var fs = fullscreen();\n  if (!fs) {\n    fullscreen(true);\n  }\n}\n\n/* full screening will change the size of the canvas */\nfunction windowResized() {\n  resizeCanvas(windowWidth, windowHeight);\n}\n\n/* prevents the mobile browser from processing some default\n * touch events, like swiping left for \"back\" or scrolling the page.\n */\ndocument.ontouchmove = function(event) {\n    event.preventDefault();\n};\n\nlet flock;\n\nfunction setup() {\n  createCanvas(640, 360);\n  createP(\"Drag the mouse to generate new boids.\");\n\n  flock = new Flock();\n  // Add an initial set of boids into the system\n  for (let i = 0; i < 100; i++) {\n    let b = new Boid(width / 2,height / 2);\n    flock.addBoid(b);\n  }\n}\n\nfunction draw() {\n  background(51);\n  flock.run();\n}\n\n// Add a new boid into the System\nfunction mouseDragged() {\n  flock.addBoid(new Boid(mouseX, mouseY));\n}\n\n// The Nature of Code\n// Daniel Shiffman\n// http://natureofcode.com\n\n// Flock object\n// Does very little, simply manages the array of all the boids\n\nfunction Flock() {\n  // An array for all the boids\n  this.boids = []; // Initialize the array\n}\n\nFlock.prototype.run = function() {\n  for (let i = 0; i < this.boids.length; i++) {\n    this.boids[i].run(this.boids);  // Passing the entire list of boids to each boid individually\n  }\n}\n\nFlock.prototype.addBoid = function(b) {\n  this.boids.push(b);\n}\n\n// The Nature of Code\n// Daniel Shiffman\n// http://natureofcode.com\n\n// Boid class\n// Methods for Separation, Cohesion, Alignment added\n\nfunction Boid(x, y) {\n  this.acceleration = createVector(0, 0);\n  this.velocity = createVector(random(-1, 1), random(-1, 1));\n  this.position = createVector(x, y);\n  this.r = 3.0;\n  this.maxspeed = 3;    // Maximum speed\n  this.maxforce = 0.05; // Maximum steering force\n}\n\nBoid.prototype.run = function(boids) {\n  this.flock(boids);\n  this.update();\n  this.borders();\n  this.render();\n}\n\nBoid.prototype.applyForce = function(force) {\n  // We could add mass here if we want A = F / M\n  this.acceleration.add(force);\n}\n\n// We accumulate a new acceleration each time based on three rules\nBoid.prototype.flock = function(boids) {\n  let sep = this.separate(boids);   // Separation\n  let ali = this.align(boids);      // Alignment\n  let coh = this.cohesion(boids);   // Cohesion\n  // Arbitrarily weight these forces\n  sep.mult(1.5);\n  ali.mult(1.0);\n  coh.mult(1.0);\n  // Add the force vectors to acceleration\n  this.applyForce(sep);\n  this.applyForce(ali);\n  this.applyForce(coh);\n}\n\n// Method to update location\nBoid.prototype.update = function() {\n  // Update velocity\n  this.velocity.add(this.acceleration);\n  // Limit speed\n  this.velocity.limit(this.maxspeed);\n  this.position.add(this.velocity);\n  // Reset accelertion to 0 each cycle\n  this.acceleration.mult(0);\n}\n\n// A method that calculates and applies a steering force towards a target\n// STEER = DESIRED MINUS VELOCITY\nBoid.prototype.seek = function(target) {\n  let desired = p5.Vector.sub(target,this.position);  // A vector pointing from the location to the target\n  // Normalize desired and scale to maximum speed\n  desired.normalize();\n  desired.mult(this.maxspeed);\n  // Steering = Desired minus Velocity\n  let steer = p5.Vector.sub(desired,this.velocity);\n  steer.limit(this.maxforce);  // Limit to maximum steering force\n  return steer;\n}\n\nBoid.prototype.render = function() {\n  // Draw a triangle rotated in the direction of velocity\n  let theta = this.velocity.heading() + radians(90);\n  fill(127);\n  stroke(200);\n  push();\n  translate(this.position.x, this.position.y);\n  rotate(theta);\n  beginShape();\n  vertex(0, -this.r * 2);\n  vertex(-this.r, this.r * 2);\n  vertex(this.r, this.r * 2);\n  endShape(CLOSE);\n  pop();\n}\n\n// Wraparound\nBoid.prototype.borders = function() {\n  if (this.position.x < -this.r)  this.position.x = width + this.r;\n  if (this.position.y < -this.r)  this.position.y = height + this.r;\n  if (this.position.x > width + this.r) this.position.x = -this.r;\n  if (this.position.y > height + this.r) this.position.y = -this.r;\n}\n\n// Separation\n// Method checks for nearby boids and steers away\nBoid.prototype.separate = function(boids) {\n  let desiredseparation = 25.0;\n  let steer = createVector(0, 0);\n  let count = 0;\n  // For every boid in the system, check if it's too close\n  for (let i = 0; i < boids.length; i++) {\n    let d = p5.Vector.dist(this.position,boids[i].position);\n    // If the distance is greater than 0 and less than an arbitrary amount (0 when you are yourself)\n    if ((d > 0) && (d < desiredseparation)) {\n      // Calculate vector pointing away from neighbor\n      let diff = p5.Vector.sub(this.position, boids[i].position);\n      diff.normalize();\n      diff.div(d);        // Weight by distance\n      steer.add(diff);\n      count++;            // Keep track of how many\n    }\n  }\n  // Average -- divide by how many\n  if (count > 0) {\n    steer.div(count);\n  }\n\n  // As long as the vector is greater than 0\n  if (steer.mag() > 0) {\n    // Implement Reynolds: Steering = Desired - Velocity\n    steer.normalize();\n    steer.mult(this.maxspeed);\n    steer.sub(this.velocity);\n    steer.limit(this.maxforce);\n  }\n  return steer;\n}\n\n// Alignment\n// For every nearby boid in the system, calculate the average velocity\nBoid.prototype.align = function(boids) {\n  let neighbordist = 50;\n  let sum = createVector(0,0);\n  let count = 0;\n  for (let i = 0; i < boids.length; i++) {\n    let d = p5.Vector.dist(this.position,boids[i].position);\n    if ((d > 0) && (d < neighbordist)) {\n      sum.add(boids[i].velocity);\n      count++;\n    }\n  }\n  if (count > 0) {\n    sum.div(count);\n    sum.normalize();\n    sum.mult(this.maxspeed);\n    let steer = p5.Vector.sub(sum, this.velocity);\n    steer.limit(this.maxforce);\n    return steer;\n  } else {\n    return createVector(0, 0);\n  }\n}\n\n// Cohesion\n// For the average location (i.e. center) of all nearby boids, calculate steering vector towards that location\nBoid.prototype.cohesion = function(boids) {\n  let neighbordist = 50;\n  let sum = createVector(0, 0);   // Start with empty vector to accumulate all locations\n  let count = 0;\n  for (let i = 0; i < boids.length; i++) {\n    let d = p5.Vector.dist(this.position,boids[i].position);\n    if ((d > 0) && (d < neighbordist)) {\n      sum.add(boids[i].position); // Add location\n      count++;\n    }\n  }\n  if (count > 0) {\n    sum.div(count);\n    return this.seek(sum);  // Steer towards the location\n  } else {\n    return createVector(0, 0);\n  }\n}\n\n\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "660b1fc5be781d3659e4e226",
+        "isSelectedFile": true,
+        "createdAt": "2024-04-09T13:28:23.695Z",
+        "updatedAt": "2024-04-09T13:28:23.695Z",
+        "id": "660b1fc5be781d3659e4e226"
+      },
+      {
+        "name": "index.html",
+        "content": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.2/p5.js\"></script>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.2/addons/p5.sound.min.js\"></script>\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\">\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1\"/>\n    \n  </head>\n  <body>\n    <main>\n    </main>\n    <script src=\"sketch.js\"></script>\n  </body>\n</html>\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "660b1fc5be781d3659e4e225",
+        "createdAt": "2024-04-09T13:28:23.695Z",
+        "updatedAt": "2024-04-09T13:28:23.695Z",
+        "isSelectedFile": false,
+        "id": "660b1fc5be781d3659e4e225"
+      },
+      {
+        "name": "style.css",
+        "content": "html, body {\n  margin: 0;\n  padding: 0;\n}\ncanvas {\n  display: block;\n}\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "660b1fc5be781d3659e4e227",
+        "createdAt": "2024-04-09T13:28:23.695Z",
+        "updatedAt": "2024-04-09T13:28:23.695Z",
+        "isSelectedFile": false,
+        "id": "660b1fc5be781d3659e4e227"
+      }
+    ],
+    "createdAt": "2024-04-01T20:57:42.097Z",
+    "updatedAt": "2024-04-09T13:28:23.695Z",
+    "id": "9Y4-HpXAu"
+  },
+  {
+    "name": "ims03 - Isadora",
+    "_id": "TGbYD1IF4",
+    "files": [
+      {
+        "name": "root",
+        "content": "",
+        "children": [
+          "661465185e4f9d653c9b33c6",
+          "661465185e4f9d653c9b33c7",
+          "661465185e4f9d653c9b33c8"
+        ],
+        "fileType": "folder",
+        "_id": "661465185e4f9d653c9b33c5",
+        "createdAt": "2024-04-16T13:20:50.121Z",
+        "updatedAt": "2024-04-16T13:20:50.121Z",
+        "isSelectedFile": false,
+        "id": "661465185e4f9d653c9b33c5"
+      },
+      {
+        "name": "sketch.js",
+        "content": "//https://editor.p5js.org/imf5487/sketches/TGbYD1IF4\n///ims03-Isadora\n\n/*Original: https://editor.p5js.org/p5/sketches/Interaction:_kaleidoscope\n// changing background reference (https://p5js.org/reference/#/p5/background and https://editor.p5js.org/lberdugo/sketches/BJG10p4dZ)\n * @name Kaleidoscope\n * @arialabel User draws thick black lines on the grey background and it is mirrored 5 times in a circle like a kaleidoscope\n * @description A kaleidoscope is an optical instrument with two or more reflecting surfaces tilted to each other in an angle. This example tries to replicate the behavior of a kaleidoscope. Set the number of reflections at the symmetry variable and start drawing on the screen. Paste the below code in the <a href=\"https://editor.p5js.org/\"> Editor </a> and click on the save button if you wish to download a .jpg file of the art that you have created.\n */\n// Symmetry corresponding to the number of reflections. Change the number for different number of reflections \nlet symmetry = 6;   \n\nlet angle = 360 / symmetry;\nlet saveButton, clearButton, colorChangeButton, mouseButton, keyboardButton;\nlet slider;\n\nfunction windowResized() {\n  resizeCanvas(windowWidth, windowHeight);\n}\n\n\nfunction setup() { \n  createCanvas(710, 710);\n  angleMode(DEGREES);\n  background(127);\n\n  // Creating the save button for the file\n  saveButton = createButton('save');\n  saveButton.mousePressed(saveFile);\n\n  // Creating the clear screen button\n  clearButton = createButton('clear');\n  clearButton.mousePressed(clearScreen);\n\n  // Creating the button for Full Screen\n  fullscreenButton = createButton('Full Screen');\n  fullscreenButton.mousePressed(screenFull);\n\n  // Setting up the slider for the thickness of the brush\n  brushSizeSlider = createButton('Brush Size Slider');\n  sizeSlider = createSlider(1, 32, 4, 0.1);\n\n  //Creating button for Changing Background\n  colorChangeButton = createButton('change background');\n  colorChangeButton.mousePressed(changeColor);\n}\n\n// Save File Function\nfunction saveFile() {\n  save('design.jpg');\n}\n\n// Clear Screen function\nfunction clearScreen() {\n  background(127);\n}\n\n// Full Screen Function\nfunction screenFull() {\n  let fs = fullscreen();\n  fullscreen(!fs);\n}\n\n//Background Color Change Function\n  function changeColor(){\n  time = millis(1000);\n  background(random(255), random(255), random(255));\n    time = millis(); //also update the stored time\n}\n\nfunction draw() {\n  translate(width / 2, height / 2);\n  stroke(mouseX,0,mouseY);\n\n  if (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {\n    let mx = mouseX - width / 2;\n    let my = mouseY - height / 2;\n    let pmx = pmouseX - width / 2;\n    let pmy = pmouseY - height / 2;\n    \n    if (mouseIsPressed) {\n      for (let i = 0; i < symmetry; i++) {\n        rotate(angle);\n        let sw = sizeSlider.value();\n        strokeWeight(sw);\n        line(mx, my, pmx, pmy);\n        push();\n        scale(1, -1);\n        line(mx, my, pmx, pmy);\n        pop();\n      }\n    }\n  }\n}\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "661465185e4f9d653c9b33c7",
+        "isSelectedFile": true,
+        "createdAt": "2024-04-16T13:20:50.121Z",
+        "updatedAt": "2024-04-16T13:20:50.121Z",
+        "id": "661465185e4f9d653c9b33c7"
+      },
+      {
+        "name": "index.html",
+        "content": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.2/p5.js\"></script>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.2/addons/p5.sound.min.js\"></script>\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\">\n    <meta charset=\"utf-8\" />\n\n  </head>\n  <body>\n    <main>\n    </main>\n    <script src=\"sketch.js\"></script>\n  </body>\n</html>\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "661465185e4f9d653c9b33c6",
+        "createdAt": "2024-04-16T13:20:50.121Z",
+        "updatedAt": "2024-04-16T13:20:50.121Z",
+        "isSelectedFile": false,
+        "id": "661465185e4f9d653c9b33c6"
+      },
+      {
+        "name": "style.css",
+        "content": "html, body {\n  margin: 0;\n  padding: 0;\n}\ncanvas {\n  display: block;\n}\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "661465185e4f9d653c9b33c8",
+        "createdAt": "2024-04-16T13:20:50.121Z",
+        "updatedAt": "2024-04-16T13:20:50.121Z",
+        "isSelectedFile": false,
+        "id": "661465185e4f9d653c9b33c8"
+      }
+    ],
+    "createdAt": "2024-04-08T21:43:54.180Z",
+    "updatedAt": "2024-04-16T13:20:50.121Z",
+    "id": "TGbYD1IF4"
+  },
+  {
+    "name": "Isadora's Self Portrait",
+    "_id": "qEFzoML2q",
+    "updatedAt": "2024-03-31T20:01:57.867Z",
+    "files": [
+      {
+        "name": "root",
+        "content": "",
+        "children": [
+          "6609bc87a374f4001a3895df",
+          "65ff26e1cd73d3ebdd3898bb",
+          "65ff26e1cd73d3ebdd3898ba",
+          "65ff26e1cd73d3ebdd3898bc"
+        ],
+        "fileType": "folder",
+        "_id": "65ff26e1cd73d3ebdd3898bd",
+        "createdAt": "2024-03-31T20:01:57.867Z",
+        "updatedAt": "2024-03-31T20:01:57.867Z",
+        "isSelectedFile": false,
+        "id": "65ff26e1cd73d3ebdd3898bd"
+      },
+      {
+        "name": "sketch.js",
+        "content": "function setup() {\n  angleMode(DEGREES);\n  rectMode(CENTER);\n  createCanvas(400, 400);\n   background(150, 0, 100, 150);\n  \n  fill(125,44,12);\n  rect(200,220,205,330,90) //back hair\n  \n  fill(75,217,242);\n  rect(200,380,190,270,40); //shirt\n  \n   fill(145,68,9);\n  rect(200,239,50,50); //neck\n  \n  fill(75,217,242);\n  rect(200,380,190,270,40); //shirt\n  \n  fill(145,68,9);\n  arc(200,195,50,50,0,180); //mouth\n  \n\n     fill(145,68,9);\n  ellipse(125,155,30,20); //left ear\n  ellipse(275,155,30,20); //right ear\n  \n  \n  fill(145,68,9);\n  ellipse(200,150,150,180); //face\n\n  fill(145,68,9);\n  arc(200,195,50,50,0,180); //mouth\n  \n  \n  fill(186,91,19);\n  ellipse(170,143,20,20); //left eye\n  ellipse(230,143,20,20); //right eye\n  \n   fill(186,91,19);\n  arc(198,175,25,15,90,270); //nose\n}\n\nfunction drawFlower(x, y, d, r, g, b) {\n  fill(255,255,0);\n  ellipse(x,y,d,d);\n  fill(r,g,b);\n  ellipse(x - 50, y, d, d);\n  ellipse(x + 50, y, d, d);\n  ellipse(x - 25, y + 43, d, d);\n  ellipse(x + 25, y + 43, d, d);\n  ellipse(x - 25, y - 43, d, d);\n  ellipse(x + 25, y - 43, d, d);\n}\n\nlet fairysparkle;\n  \nfunction preload(){\n  fairysparkle = loadSound('fairysparkle.wav');\n}\n  \n\nfunction mousePressed() {\n  drawFlower(mouseX, mouseY, random(40,60), \nrandom(0,255), random(110, 255), random(120, 255));\n             \n}\n\nfunction mousePressed(){\n  drawFlower(mouseX, mouseY, random(40,60), \nrandom(0,255), random(110, 255), random(120, 255));\n  fairysparkle.play();\n}",
+        "children": [],
+        "fileType": "file",
+        "_id": "65ff26e1cd73d3ebdd3898ba",
+        "isSelectedFile": true,
+        "createdAt": "2024-03-31T20:01:57.867Z",
+        "updatedAt": "2024-03-31T20:01:57.867Z",
+        "id": "65ff26e1cd73d3ebdd3898ba"
+      },
+      {
+        "name": "index.html",
+        "content": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.2/p5.js\"></script>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.2/addons/p5.sound.min.js\"></script>\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\">\n    <meta charset=\"utf-8\" />\n\n  </head>\n  <body>\n    <main>\n    </main>\n    <script src=\"sketch.js\"></script>\n  </body>\n</html>\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "65ff26e1cd73d3ebdd3898bb",
+        "createdAt": "2024-03-31T20:01:57.867Z",
+        "updatedAt": "2024-03-31T20:01:57.867Z",
+        "isSelectedFile": false,
+        "id": "65ff26e1cd73d3ebdd3898bb"
+      },
+      {
+        "name": "style.css",
+        "content": "html, body {\n  margin: 0;\n  padding: 0;\n}\ncanvas {\n  display: block;\n}\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "65ff26e1cd73d3ebdd3898bc",
+        "createdAt": "2024-03-31T20:01:57.867Z",
+        "updatedAt": "2024-03-31T20:01:57.867Z",
+        "isSelectedFile": false,
+        "id": "65ff26e1cd73d3ebdd3898bc"
+      },
+      {
+        "name": "fairysparkle.wav",
+        "content": "",
+        "children": [],
+        "fileType": "file",
+        "_id": "6609bc87a374f4001a3895df",
+        "url": "https://assets.editor.p5js.org/65ff275c865708001ae8a2e8/37adf0f7-5c62-4e28-adc2-9525a2afaf33.wav",
+        "updatedAt": "2024-03-31T20:01:57.867Z",
+        "createdAt": "2024-03-31T20:01:57.867Z",
+        "isSelectedFile": false,
+        "id": "6609bc87a374f4001a3895df"
+      }
+    ],
+    "createdAt": "2024-03-23T20:49:17.545Z",
+    "id": "qEFzoML2q"
+  }
+]
