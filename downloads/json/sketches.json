@@ -114,9 +114,66 @@
     "id": "zlitcRZVBS"
   },
   {
+    "name": "Final Project - imf5487",
+    "_id": "LQqwfLma6",
+    "updatedAt": "2024-04-23T14:30:12.738Z",
+    "files": [
+      {
+        "name": "root",
+        "content": "",
+        "children": [
+          "661e8082a1354f08b4f508c0",
+          "661e8082a1354f08b4f508bf",
+          "661e8082a1354f08b4f508c1"
+        ],
+        "fileType": "folder",
+        "_id": "661e8082a1354f08b4f508c2",
+        "isSelectedFile": false,
+        "createdAt": "2024-04-23T14:30:12.738Z",
+        "updatedAt": "2024-04-23T14:30:12.738Z",
+        "id": "661e8082a1354f08b4f508c2"
+      },
+      {
+        "name": "sketch.js",
+        "content": "let stemcolor;\nlet growY = 500;\n\nvar time;\nvar wait = 4000;\n\n\nfunction windowResized() {\n  resizeCanvas(windowWidth, windowHeight);\n}\n\nfunction setup() {\n  createCanvas(700, 500);\n  noStroke();\n   stemcolor = color(0, 137, 50);\n  dirtcolor = color(103, 45, 0);\n   time = millis();\n}\n\nfunction draw() {\n  //loop();\n  //background(157, 242, 235);\n   if ((millis() - time) >= wait) { \n     time = millis() + \n    background(29, 32, 41);\n  }\n\n  noStroke();\n  fill(dirtcolor)\n  rect(0, 420, 695, 80);\n  \n  fill(255, 201, 0, 255);\n  circle(100, 90, 80); \n  \n  \n  stroke(stemcolor);\n  strokeWeight(6);\n  line(600, growY, 600, 700);\n  \n  \n  \n  noStroke();\n  translate(600, 300); \n  fill('rgb(196,164,221)');\n  for (let i = 0; i < 10; i++) {\n    ellipse(0, 20, 20, 80);  \n    rotate(PI / 5);\n  }\n  if(growY >=300) {\n  growY = growY - 1\n }\n}",
+        "children": [],
+        "fileType": "file",
+        "_id": "661e8082a1354f08b4f508bf",
+        "isSelectedFile": true,
+        "createdAt": "2024-04-23T14:30:12.738Z",
+        "updatedAt": "2024-04-23T14:30:12.738Z",
+        "id": "661e8082a1354f08b4f508bf"
+      },
+      {
+        "name": "index.html",
+        "content": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.1/p5.js\"></script>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.1/addons/p5.sound.min.js\"></script>\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\">\n    <meta charset=\"utf-8\" />\n\n  </head>\n  <body>\n    <main>\n    </main>\n    <script src=\"sketch.js\"></script>\n  </body>\n</html>\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "661e8082a1354f08b4f508c0",
+        "isSelectedFile": false,
+        "createdAt": "2024-04-23T14:30:12.738Z",
+        "updatedAt": "2024-04-23T14:30:12.738Z",
+        "id": "661e8082a1354f08b4f508c0"
+      },
+      {
+        "name": "style.css",
+        "content": "html, body {\n  margin: 0;\n  padding: 0;\n}\ncanvas {\n  display: block;\n}\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "661e8082a1354f08b4f508c1",
+        "isSelectedFile": false,
+        "createdAt": "2024-04-23T14:30:12.738Z",
+        "updatedAt": "2024-04-23T14:30:12.738Z",
+        "id": "661e8082a1354f08b4f508c1"
+      }
+    ],
+    "createdAt": "2024-04-16T15:38:46.108Z",
+    "id": "LQqwfLma6"
+  },
+  {
     "name": "Generative Art",
     "_id": "MYwmZ15pW",
-    "updatedAt": "2024-04-14T23:23:06.071Z",
+    "updatedAt": "2024-04-29T19:08:18.447Z",
     "files": [
       {
         "name": "root",
@@ -129,19 +186,19 @@
         "fileType": "folder",
         "_id": "661c1fefc3cc7957a6215133",
         "isSelectedFile": false,
-        "createdAt": "2024-04-14T23:23:06.071Z",
-        "updatedAt": "2024-04-14T23:23:06.071Z",
+        "createdAt": "2024-04-29T19:08:18.447Z",
+        "updatedAt": "2024-04-29T19:08:18.447Z",
         "id": "661c1fefc3cc7957a6215133"
       },
       {
         "name": "sketch.js",
-        "content": "var WIDTH = 400;\nvar HEIGHT = 400;\n\n\nfunction setup() {\n  createCanvas(WIDTH, HEIGHT);\n}\n\nfunction draw() {\n  background(100);\n  noFill();\n\n  var penSize = 4;\n  strokeWeight(penSize);\n\n  var diameter = 100;\n\n  // Black \n  stroke(\"pink\");\n  circle(WIDTH / 2, HEIGHT / 2 - diameter/4, diameter);\n\n  // Blue \n  stroke(0, 0, 222);\n  circle(WIDTH / 2 - diameter - 2 * penSize, HEIGHT / 2 - diameter/4, diameter);\n\n  // Red \n  stroke(\"purple\");\n  circle(WIDTH / 2 + diameter + 2 * penSize, HEIGHT / 2 - diameter/4, diameter);\n  \n  // Yellow \n  stroke(255,255,0,100);\n  circle(WIDTH / 2 - diameter/2 - penSize, HEIGHT / 2 + diameter/4, diameter);\n  \n  // Green \n  stroke(0,255,0,100);\n  circle(WIDTH / 2 + diameter/2 + penSize, HEIGHT / 2 + diameter/4, diameter);\n  \n  // blue 2 \n  stroke(0 ,0, 222);\n  arc(WIDTH / 2 - diameter - 2 * penSize, HEIGHT / 2 - diameter/4, diameter,diameter,-PI/4,PI/4);\n  \n  // Black 2\n  stroke(\"pink\");\n  arc(WIDTH / 2, HEIGHT / 2 - diameter/4, diameter,diameter, -PI/4,PI/4);\n  arc(WIDTH / 2, HEIGHT / 2 - diameter/4, diameter,diameter, PI/2,2*PI/3);\n  \n  //  Red 2\n  stroke(\"purple\");\n  arc(WIDTH / 2 + diameter + 2 * penSize, HEIGHT / 2 - diameter/4, diameter,diameter,PI/2,2*PI/3);\n  \n  \n\n  \n}",
+        "content": "var WIDTH = 400;\nvar HEIGHT = 400;\n\n\nfunction setup() {\n  createCanvas(WIDTH, HEIGHT);\n}\n\nfunction draw() {\n  background(100);\n  noFill();\n\n  var penSize = 4;\n  strokeWeight(penSize);\n\n  var diameter = 100;\n\n  // Black \n  stroke(\"pink\");\n  circle(WIDTH / 2, HEIGHT / 2 - diameter/4, diameter);\n\n  // Blue \n  stroke(0, 0, 222);\n  circle(WIDTH / 2 - diameter - 2 * penSize, HEIGHT / 2 - diameter/4, diameter);\n\n  // Red \n  stroke(\"purple\");\n  circle(WIDTH / 2 + diameter + 2 * penSize, HEIGHT / 2 - diameter/4, diameter);\n  \n  // Yellow \n  stroke(255,255,0,100);\n  circle(WIDTH / 2 - diameter/2 - penSize, HEIGHT / 2 + diameter/4, diameter);\n  \n  // Green \n  stroke(0,255,0,100);\n  circle(WIDTH / 2 + diameter/2 + penSize, HEIGHT / 2 + diameter/4, diameter);\n  \n  // blue 2 \n  stroke(0 ,0, 222);\n  arc(WIDTH / 2 - diameter - 2 * penSize, HEIGHT / 2 - diameter/4, diameter,diameter,-PI/4,PI/4);\n  \n  // Black 2\n  stroke(\"pink\");\n  arc(WIDTH / 2, HEIGHT / 2 - diameter/4, diameter,diameter, -PI/4,PI/4);\n  arc(WIDTH / 2, HEIGHT / 2 - diameter/4, diameter,diameter, PI/2,2*PI/3);\n  \n  //  Red 2\n  stroke(\"purple\");\n  arc(WIDTH / 2 + diameter + 2 * penSize, HEIGHT / 2 - diameter/4, diameter,diameter,PI/2,2*PI/3);\n\n  \n}",
         "children": [],
         "fileType": "file",
         "_id": "661c1fefc3cc7957a6215130",
         "isSelectedFile": true,
-        "createdAt": "2024-04-14T23:23:06.071Z",
-        "updatedAt": "2024-04-14T23:23:06.071Z",
+        "createdAt": "2024-04-29T19:08:18.447Z",
+        "updatedAt": "2024-04-29T19:08:18.447Z",
         "id": "661c1fefc3cc7957a6215130"
       },
       {
@@ -151,8 +208,8 @@
         "fileType": "file",
         "_id": "661c1fefc3cc7957a6215131",
         "isSelectedFile": false,
-        "createdAt": "2024-04-14T23:23:06.071Z",
-        "updatedAt": "2024-04-14T23:23:06.071Z",
+        "createdAt": "2024-04-29T19:08:18.447Z",
+        "updatedAt": "2024-04-29T19:08:18.447Z",
         "id": "661c1fefc3cc7957a6215131"
       },
       {
@@ -162,13 +219,83 @@
         "fileType": "file",
         "_id": "661c1fefc3cc7957a6215132",
         "isSelectedFile": false,
-        "createdAt": "2024-04-14T23:23:06.071Z",
-        "updatedAt": "2024-04-14T23:23:06.071Z",
+        "createdAt": "2024-04-29T19:08:18.447Z",
+        "updatedAt": "2024-04-29T19:08:18.447Z",
         "id": "661c1fefc3cc7957a6215132"
       }
     ],
     "createdAt": "2024-04-14T22:52:13.563Z",
     "id": "MYwmZ15pW"
+  },
+  {
+    "name": "HTML",
+    "_id": "0H6vEh9rb",
+    "files": [
+      {
+        "name": "root",
+        "content": "",
+        "children": [
+          "66257258f7d46d9c22b0e7cf",
+          "66257258f7d46d9c22b0e7d0",
+          "66257258f7d46d9c22b0e7d1",
+          "66257258f7d46d9c22b0e7d2"
+        ],
+        "fileType": "folder",
+        "_id": "66257258f7d46d9c22b0e7ce",
+        "createdAt": "2024-04-21T23:26:10.325Z",
+        "updatedAt": "2024-04-21T23:26:10.325Z",
+        "isSelectedFile": false,
+        "id": "66257258f7d46d9c22b0e7ce"
+      },
+      {
+        "name": "sketch.js",
+        "content": "let colorChangeButton;\n\nfunction setup() {\n  angleMode(DEGREES);\n  rectMode(CENTER);\n  createCanvas(400, 400);\n   background(150, 0, 100, 150);\n \n  colorChangeButton = createButton('change background');\n  colorChangeButton.mousePressed(changeColor);\n  \n}\n  \n  function changeColor(){\n  time = millis(1000);\n  background(random(255), random(255), random(255));\n    time = millis(); //also update the stored time\n}\n  \nfunction draw() {\n  fill(125,44,12);\n  rect(200,220,205,330,90) //back hair\n  \n  fill(75,217,242);\n  rect(200,380,190,270,40); //shirt\n  \n   fill(145,68,9);\n  rect(200,239,50,50); //neck\n  \n  fill(75,217,242);\n  rect(200,380,190,270,40); //shirt\n  \n  fill(145,68,9);\n  arc(200,195,50,50,0,180); //mouth\n  \n\n     fill(145,68,9);\n  ellipse(125,155,30,20); //left ear\n  ellipse(275,155,30,20); //right ear\n  \n  \n  fill(145,68,9);\n  ellipse(200,150,150,180); //face\n\n  fill(145,68,9);\n  arc(200,195,50,50,0,180); //mouth\n  \n  \n  fill(186,91,19);\n  ellipse(170,143,20,20); //left eye\n  ellipse(230,143,20,20); //right eye\n  \n   fill(186,91,19);\n  arc(198,175,25,15,90,270); //nose\n}\n\n\n\nfunction drawFlower(x, y, d, r, g, b) {\n  fill(255,255,0);\n  ellipse(x,y,d,d);\n  fill(r,g,b);\n  ellipse(x - 50, y, d, d);\n  ellipse(x + 50, y, d, d);\n  ellipse(x - 25, y + 43, d, d);\n  ellipse(x + 25, y + 43, d, d);\n  ellipse(x - 25, y - 43, d, d);\n  ellipse(x + 25, y - 43, d, d);\n}\n\nlet fairysparkle;\n  \nfunction preload(){\n  fairysparkle = loadSound('fairysparkle.wav');\n}\n  \n\nfunction mousePressed() {\n  drawFlower(mouseX, mouseY, random(40,60), \nrandom(0,255), random(110, 255), random(120, 255));\n             \n}\n\nfunction mousePressed(){\n  drawFlower(mouseX, mouseY, random(40,60), \nrandom(0,255), random(110, 255), random(120, 255));\n  fairysparkle.play();\n}",
+        "children": [],
+        "fileType": "file",
+        "_id": "66257258f7d46d9c22b0e7d1",
+        "isSelectedFile": false,
+        "createdAt": "2024-04-21T23:26:10.325Z",
+        "updatedAt": "2024-04-21T23:26:10.325Z",
+        "id": "66257258f7d46d9c22b0e7d1"
+      },
+      {
+        "name": "index.html",
+        "content": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.2/p5.js\"></script>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.2/addons/p5.sound.min.js\"></script>\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\">\n    <meta charset=\"utf-8\" />\n  <style> \n  h1{\n    background-color: green; \n    color: white; \n    padding: 6px;\n    }\n\n  p{\n    background-color: green ;\n    color: white;\n    padding: 6px;\n  }\n    </style>\n    \n    \n    \n  </head>\n  \n  <body>\n    <h1>Hello Spring!</h1>\n    \n    <p>A girl enjoying the magic of spring with flowers because spring is a time of new things and warmth. She'd love if you joined her!</p>\n    <main>\n    </main>\n    <script src=\"sketch.js\"></script>\n  </body>\n</html>\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "66257258f7d46d9c22b0e7d0",
+        "createdAt": "2024-04-21T23:26:10.325Z",
+        "updatedAt": "2024-04-21T23:26:10.325Z",
+        "isSelectedFile": true,
+        "id": "66257258f7d46d9c22b0e7d0"
+      },
+      {
+        "name": "style.css",
+        "content": "html, body {\n  margin: 0;\n  padding: 0;\n}\ncanvas {\n  display: block;\n}\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "66257258f7d46d9c22b0e7d2",
+        "createdAt": "2024-04-21T23:26:10.325Z",
+        "updatedAt": "2024-04-21T23:26:10.325Z",
+        "isSelectedFile": false,
+        "id": "66257258f7d46d9c22b0e7d2"
+      },
+      {
+        "name": "fairysparkle.wav",
+        "content": "",
+        "children": [],
+        "fileType": "file",
+        "_id": "66257258f7d46d9c22b0e7cf",
+        "url": "https://assets.editor.p5js.org/65ff275c865708001ae8a2e8/14bbb751-1a43-4332-8ff2-56378ca10536.wav",
+        "updatedAt": "2024-04-21T23:26:10.325Z",
+        "createdAt": "2024-04-21T23:26:10.325Z",
+        "isSelectedFile": false,
+        "id": "66257258f7d46d9c22b0e7cf"
+      }
+    ],
+    "createdAt": "2024-04-21T20:08:57.067Z",
+    "updatedAt": "2024-04-21T23:26:10.325Z",
+    "id": "0H6vEh9rb"
   },
   {
     "name": "ims01 - Isadora",
@@ -339,6 +466,75 @@
     "id": "TGbYD1IF4"
   },
   {
+    "name": "ims05 -imf5487",
+    "_id": "Z8XfIhlSf",
+    "updatedAt": "2024-04-30T12:50:39.164Z",
+    "files": [
+      {
+        "name": "root",
+        "content": "",
+        "children": [
+          "66305029de65c60019469262",
+          "66301816e3b8427903ecce7d",
+          "66301816e3b8427903ecce7c",
+          "66301816e3b8427903ecce7e"
+        ],
+        "fileType": "folder",
+        "_id": "66301816e3b8427903ecce7f",
+        "isSelectedFile": false,
+        "createdAt": "2024-04-30T12:50:39.164Z",
+        "updatedAt": "2024-04-30T12:50:39.164Z",
+        "id": "66301816e3b8427903ecce7f"
+      },
+      {
+        "name": "sketch.js",
+        "content": "//ims05 - imf5487\n//Isadora Fleming Final Project\n//References document: https://docs.google.com/document/d/1S5jXU6knsKtYP1nowR6es72uJM2ASDXsUMUahwIGWog/edit\n\n\nlet comet;  /// parent object to spark fragments\nlet sparks = []; /// spark fragments\nlet noofsparks = 100; \nlet timecheck = 10;\nlet backgroundCalm;\n\nfunction windowResized() {\n  resizeCanvas(windowWidth, windowHeight);\n}\n\nfunction preload() {\n  backgroundCalm = loadSound(\"Oceans Heart.mp3\");\n}\n\nfunction setup() {\n  createCanvas(700, 400);\n  background(0); \n   comet = new fireball(); for (let i = 0; i < noofsparks; i++) {\n    sparks.push(new minifireball());\n  }\n  fullscreenButton = createButton(\"Full Screen\");\n  fullscreenButton.mousePressed(fullscreen);\n  \n  backgroundMusic();\n}\n\nfunction backgroundMusic() {\n  backgroundCalm.play();\n  backgroundCalm.loop();\n  backgroundCalm.setVolume(0.1);\n}\n \nfunction draw() {\n   background(0); \n  \n  fill(255, 201, 0, 255);\n  circle(55, 70, 80); \n  \n  fill(255, 120, 205);\n  push();\n  translate(width * 0.2, height * 0.3);\n  rotate(frameCount / -100.0);\n  star(0, 0, 10, 1.2, 5);\n  pop();\n  \n  fill (245, 217, 39);\n  push();\n  translate(width * 0.8, height * 0.5);\n  rotate(frameCount / -100.0);\n  star(0, 0, 10, 1.2, 5);\n  pop();\n  \n  fill(255);\n  noStroke();\n  push();\n  translate(width * 0.7, height * 0.2);\n  rotate(frameCount / 100.0);\n  star(0, 0, 10, 1.2, 5);\n  pop();\n  \n  fill(224, 74, 74); //strawberry pink\n  noStroke();\n  push();\n  translate(width * 0.3, height * 0.8);\n  rotate(frameCount / 100.0);\n  star(0, 0, 10, 1.2, 5);\n  pop();\n  \n  fill(191, 107, 42); //coffee brown\n  noStroke();\n  push();\n  translate(width * 0.4, height * 0.1);\n  rotate(frameCount / 100.0);\n  star(0, 0, 10, 1.2, 5);\n  pop();\n  \n  fill(109, 184, 72); //light green\n  noStroke();\n  push();\n  translate(width * 0.4, height * 0.35);\n  rotate(frameCount / 100.0);\n  star(0, 0, 10, 1.2, 5);\n  pop();\n  \n   fill(34, 39, 189); // star by the moon, blue\n  noStroke();\n  push();\n  translate(width * 0.01, height * 0.45);\n  rotate(frameCount / 100.0);\n  star(0, 0, 10, 1.2, 5);\n  pop();\n  \n   fill(255); // white\n  noStroke();\n  push();\n  translate(width * 0.2, height * 0.6);\n  rotate(frameCount / 100.0);\n  star(0, 0, 10, 1.2, 5);\n  pop();\n  \n   fill(34, 189, 158); // teal\n  noStroke();\n  push();\n  translate(width * 0.89, height * 0.1);\n  rotate(frameCount / 100.0);\n  star(0, 0, 10, 1.2, 5);\n  pop();\n  \n   fill(135, 168, 214); // light blue/purple\n  noStroke();\n  push();\n  translate(width * 0.7, height * 0.6);\n  rotate(frameCount / 100.0);\n  star(0, 0, 10, 1.2, 5);\n  pop();\n  \n   fill(255, 153, 219); // baby pink\n  noStroke();\n  push();\n  translate(width * 0.4, height * 0.6);\n  rotate(frameCount / 100.0);\n  star(0, 0, 10, 1.2, 5);\n  pop();\n  \n   fill(227, 89, 39); // pumpkin\n  noStroke();\n  push();\n  translate(width * 0.1, height * 0.8);\n  rotate(frameCount / 100.0);\n  star(0, 0, 10, 1.2, 5);\n  pop();\n  \n   fill(97, 29, 145); //purple\n  noStroke();\n  push();\n  translate(width * 0.92, height * 0.8);\n  rotate(frameCount / 100.0);\n  star(0, 0, 10, 1.2, 5);\n  pop();\n  \n  fill(224, 11, 210); //bright pink\n  noStroke();\n  push();\n  translate(width * 0.55, height * 0.3);\n  rotate(frameCount / 100.0);\n  star(0, 0, 10, 1.2, 5);\n  pop();\n  \n  fill(255, 153, 158); //peach\n  noStroke();\n  push();\n  translate(width * 0.5, height * 0.7);\n  rotate(frameCount / 100.0);\n  star(0, 0, 10, 1.2, 5);\n  pop();\n  \n  fill(110, 117, 219); // blue star\n  push();\n  translate(width * 0.5, height * 0.5);\n  rotate(frameCount / 100.0);\n  star(0, 0, 10, 1.2, 5);\n  pop();\n   \n  let s = second(20);  \n  if (s / timecheck === int(s/timecheck)) {\n    comet.newcomet();\n    for (let i = 0; i < noofsparks; i++) {\n      sparks[i].newborn();\n    }\n  }\n  \n  comet.update(); \n  comet.bounds(); \n  \n  if(comet.mass > 1 &&\n    s/timecheck !== int(s/timecheck)){\n    comet.render();\n  }\n  \n  if(s/timecheck !== int(s/timecheck)) {\n   for (let i = 0; i < noofsparks; i++) { \n    let yesspark = random(1); //chance stars are born\n    if (yesspark < 0.0075) {\n      sparks[i].makenew(comet.pos, comet.vel); \n    }\n    sparks[i].update(); \n  }\n}\n\nfunction star(x, y, radius1, radius2, npoints) {\n  let angle = TWO_PI / npoints;\n  let halfAngle = angle / 2.0;\n  beginShape();\n  for (let a = 0; a < TWO_PI; a += angle) {\n    let sx = x + cos(a) * radius2;\n    let sy = y + sin(a) * radius2;\n    vertex(sx, sy);\n    sx = x + cos(a + halfAngle) * radius1;\n    sy = y + sin(a + halfAngle) * radius1;\n    vertex(sx, sy);\n  }\n  endShape(CLOSE);\n}\n}\n\nfunction fireball() { //angle of shooting star\n  this.pos = createVector(random(-45, width*0.4), \n                          height * random(0.1,0.5)); \n  this.vel = createVector(random(2, 3), random(2.75));\n  this.vel.mult(2); \n  this.mass = random(9,18); \n  \n  this.update = function() {\n    this.pos.add(this.vel);\n  }\n  \n  this.bounds = function() { \n    if (this.pos.x > width ||\n      this.pos.y > height) {\n      this.pos = createVector(random(-45, width*0.4), \n                          height * random(0.1,0.5)); \n    }\n  }\n  this.render = function() { \n    push(); \n    stroke(200, 255, 255, 180);\n    strokeWeight(this.mass*random(2,4)); \n    point(this.pos); \n    pop();\n  }\n  \n  this.newcomet = function (){\n    this.pos = createVector(random(-45, width*0.4), \n                          height * random(0.1,0.5)); \n  this.vel = createVector(random(2, 3), random(1.75));\n  this.vel.mult(2); \n  this.mass = random(9,18);\n  }\n}\n\nfunction minifireball() { \n  this.pos = createVector(comet.pos.x,\n                          comet.pos.y); \n  this.vel = createVector(comet.vel.x,\n                          comet.vel.y); \n  this.lifespan = 0; \n  this.burnrate = random(1.75, 4.5);\n\n  this.makenew = function(cometpos, cometvel) { \n    comet.mass -= 0.1; \n    if (comet.mass <= 1) { \n      comet.mass = 1; \n    }\n    \n    if (comet.mass > 1) { /// check if comet is not melted\n      this.pos = createVector(cometpos.x, cometpos.y); \n      this.vel = createVector(cometvel.x, cometvel.y+random(-0.05, random(-0.07, 0.25))); \n      this.lifespan = 0; \n      \n      \n      \n      \n      let yesspire = random(1);\n      if (yesspire < 0.25) { //flickers if below 25%\n        push();\n        translate(this.pos);\n        stroke(200, 255, 255, 180);\n        strokeWeight(random(2,4)); \n        let spire = random(comet.mass, comet.mass+3);\n        line(-spire*1.5,0, spire*1.5,0); //flaring\n        line(0, -spire*1.5, 0, -spire*1.5);\n        line(-spire, -spire, spire, spire);\n        line(spire, -spire, spire, -spire);\n        pop();\n      }\n    }\n  }\n\n  this.update = function() { \n    this.lifespan += this.burnrate; \n    if (this.lifespan >= 255) { \n      this.lifespan = 255; \n    }\n\n    if (this.lifespan < 255) { \n      this.vel.mult(0.98); \n      this.pos.add(this.vel); \n      push(); \n      stroke(255, 255 - this.lifespan, 0, 255);//yellow to red color\n      strokeWeight(random(5,8)-this.lifespan*0.015);\n      point(this.pos);\n      pop();\n    }\n  }\n  \n  this.newborn = function() {\n    this.pos = createVector(comet.pos.x,\n                            comet.pos.y);\n    this.vel = createVector(comet.vel.x,\n                            comet.vel.y);\n    this.lifespan = 0;\n    this.burnrate = random(1,2);\n  }\n}\n\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "66301816e3b8427903ecce7c",
+        "isSelectedFile": true,
+        "createdAt": "2024-04-30T12:50:39.164Z",
+        "updatedAt": "2024-04-30T12:50:39.164Z",
+        "id": "66301816e3b8427903ecce7c"
+      },
+      {
+        "name": "index.html",
+        "content": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.2/p5.js\"></script>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.2/addons/p5.sound.min.js\"></script>\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\">\n    <meta charset=\"utf-8\" />\n\n  </head>\n  <body>\n    <main>\n    </main>\n    <script src=\"sketch.js\"></script>\n  </body>\n</html>\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "66301816e3b8427903ecce7d",
+        "isSelectedFile": false,
+        "createdAt": "2024-04-30T12:50:39.164Z",
+        "updatedAt": "2024-04-30T12:50:39.164Z",
+        "id": "66301816e3b8427903ecce7d"
+      },
+      {
+        "name": "style.css",
+        "content": "html, body {\n  margin: 0;\n  padding: 0;\n}\ncanvas {\n  display: block;\n}\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "66301816e3b8427903ecce7e",
+        "isSelectedFile": false,
+        "createdAt": "2024-04-30T12:50:39.164Z",
+        "updatedAt": "2024-04-30T12:50:39.164Z",
+        "id": "66301816e3b8427903ecce7e"
+      },
+      {
+        "name": "Oceans Heart.mp3",
+        "content": "",
+        "children": [],
+        "fileType": "file",
+        "_id": "66305029de65c60019469262",
+        "url": "https://assets.editor.p5js.org/65ff275c865708001ae8a2e8/8e7c517e-44f7-4087-96d0-c7b543de379a.mp3",
+        "updatedAt": "2024-04-30T12:50:39.164Z",
+        "createdAt": "2024-04-30T12:50:39.164Z",
+        "id": "66305029de65c60019469262"
+      }
+    ],
+    "createdAt": "2024-04-29T22:51:02.828Z",
+    "id": "Z8XfIhlSf"
+  },
+  {
     "name": "Isadora's Self Portrait",
     "_id": "qEFzoML2q",
     "updatedAt": "2024-03-31T20:01:57.867Z",
@@ -407,5 +603,201 @@
     ],
     "createdAt": "2024-03-23T20:49:17.545Z",
     "id": "qEFzoML2q"
+  },
+  {
+    "name": "Jump, Jump Ninja",
+    "_id": "aYcGpc1RU",
+    "updatedAt": "2024-04-30T01:44:16.023Z",
+    "files": [
+      {
+        "name": "root",
+        "content": "",
+        "children": [
+          "662d4c5adca9cc001ae7e81d",
+          "662d4bc3dca9cc001ae7d97c",
+          "662a8c7914a8c5b656451eb5",
+          "662a8c7914a8c5b656451eb4",
+          "662a8c7914a8c5b656451eb6"
+        ],
+        "fileType": "folder",
+        "_id": "662a8c7914a8c5b656451eb7",
+        "createdAt": "2024-04-30T01:44:16.023Z",
+        "updatedAt": "2024-04-30T01:44:16.023Z",
+        "isSelectedFile": false,
+        "id": "662a8c7914a8c5b656451eb7"
+      },
+      {
+        "name": "sketch.js",
+        "content": "\nlet img;\n\nvar p1X = 100;\nvar p1Y = 100;\n\nvar b1X = 200;\nvar b1Y = 300;\nvar bWidth = 200;\nvar bHeight = 40;\n\nfunction preload() {\n  img = loadImage('Ninja.jpg');\n}\n\nfunction setup() {\n  createCanvas(500, 400);\n}\n\nfunction draw() {\n  background(15, 115, 209);\n  image(img, 50, 300, 50, 50);\n}\n\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "662a8c7914a8c5b656451eb4",
+        "isSelectedFile": true,
+        "createdAt": "2024-04-30T01:44:16.023Z",
+        "updatedAt": "2024-04-30T01:44:16.023Z",
+        "id": "662a8c7914a8c5b656451eb4"
+      },
+      {
+        "name": "index.html",
+        "content": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.2/p5.js\"></script>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.2/addons/p5.sound.min.js\"></script>\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\">\n    <meta charset=\"utf-8\" />\n\n  </head>\n  <body>\n    <main>\n    </main>\n    <script src=\"sketch.js\"></script>\n  </body>\n</html>\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "662a8c7914a8c5b656451eb5",
+        "createdAt": "2024-04-30T01:44:16.023Z",
+        "updatedAt": "2024-04-30T01:44:16.023Z",
+        "isSelectedFile": false,
+        "id": "662a8c7914a8c5b656451eb5"
+      },
+      {
+        "name": "style.css",
+        "content": "html, body {\n  margin: 0;\n  padding: 0;\n}\ncanvas {\n  display: block;\n}\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "662a8c7914a8c5b656451eb6",
+        "createdAt": "2024-04-30T01:44:16.023Z",
+        "updatedAt": "2024-04-30T01:44:16.023Z",
+        "isSelectedFile": false,
+        "id": "662a8c7914a8c5b656451eb6"
+      },
+      {
+        "name": "flow.webp",
+        "content": "",
+        "children": [],
+        "fileType": "file",
+        "_id": "662d4bc3dca9cc001ae7d97c",
+        "url": "https://assets.editor.p5js.org/65ff275c865708001ae8a2e8/5804419b-2d08-402b-b782-9edcc48dd4e7.webp",
+        "updatedAt": "2024-04-30T01:44:16.023Z",
+        "createdAt": "2024-04-30T01:44:16.023Z",
+        "isSelectedFile": false,
+        "id": "662d4bc3dca9cc001ae7d97c"
+      },
+      {
+        "name": "Ninja.jpg",
+        "content": "",
+        "children": [],
+        "fileType": "file",
+        "_id": "662d4c5adca9cc001ae7e81d",
+        "url": "https://assets.editor.p5js.org/65ff275c865708001ae8a2e8/f09b06e6-8d40-4592-91a9-c3c1e9f4f4ea.jpg",
+        "updatedAt": "2024-04-30T01:44:16.023Z",
+        "createdAt": "2024-04-30T01:44:16.023Z",
+        "id": "662d4c5adca9cc001ae7e81d"
+      }
+    ],
+    "createdAt": "2024-04-25T17:02:04.025Z",
+    "id": "aYcGpc1RU"
+  },
+  {
+    "name": "Teachable Plushies",
+    "_id": "5F6JIqsjj",
+    "updatedAt": "2024-04-23T19:28:54.297Z",
+    "files": [
+      {
+        "name": "root",
+        "content": "",
+        "children": [
+          "6628060df3c630834b26036c",
+          "6628060df3c630834b26036b",
+          "6628060df3c630834b26036d"
+        ],
+        "fileType": "folder",
+        "_id": "6628060df3c630834b26036e",
+        "isSelectedFile": false,
+        "createdAt": "2024-04-23T19:28:54.297Z",
+        "updatedAt": "2024-04-23T19:28:54.297Z",
+        "id": "6628060df3c630834b26036e"
+      },
+      {
+        "name": "sketch.js",
+        "content": "let url='https://teachablemachine.withgoogle.com/models/;';\n\nlet video\n\nfunction setup() {\n  createCanvas(400, 400);\n}\n\nfunction draw() {\n  background(220);\n}\n\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "6628060df3c630834b26036b",
+        "isSelectedFile": true,
+        "createdAt": "2024-04-23T19:28:54.297Z",
+        "updatedAt": "2024-04-23T19:28:54.297Z",
+        "id": "6628060df3c630834b26036b"
+      },
+      {
+        "name": "index.html",
+        "content": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.2/p5.js\"></script>\n   \n    <script> https://teachablemachine.withgoogle.com/models/</script>\n    \n    <link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\">\n    <meta charset=\"utf-8\" />\n\n  </head>\n  <body>\n    <main>\n    </main>\n    <script src=\"sketch.js\"></scrip>\n  </body>\n</html>\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "6628060df3c630834b26036c",
+        "isSelectedFile": false,
+        "createdAt": "2024-04-23T19:28:54.297Z",
+        "updatedAt": "2024-04-23T19:28:54.297Z",
+        "id": "6628060df3c630834b26036c"
+      },
+      {
+        "name": "style.css",
+        "content": "html, body {\n  margin: 0;\n  padding: 0;\n}\ncanvas {\n  display: block;\n}\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "6628060df3c630834b26036d",
+        "isSelectedFile": false,
+        "createdAt": "2024-04-23T19:28:54.297Z",
+        "updatedAt": "2024-04-23T19:28:54.297Z",
+        "id": "6628060df3c630834b26036d"
+      }
+    ],
+    "createdAt": "2024-04-23T19:28:54.297Z",
+    "id": "5F6JIqsjj"
+  },
+  {
+    "name": "Twinkle, Twinkle",
+    "_id": "0CuwkpOYA",
+    "updatedAt": "2024-04-30T12:49:40.163Z",
+    "files": [
+      {
+        "name": "root",
+        "content": "",
+        "children": [
+          "662fe4be488002359788ab62",
+          "662fe4be488002359788ab61",
+          "662fe4be488002359788ab63"
+        ],
+        "fileType": "folder",
+        "_id": "662fe4be488002359788ab64",
+        "isSelectedFile": false,
+        "createdAt": "2024-04-30T12:49:40.163Z",
+        "updatedAt": "2024-04-30T12:49:40.163Z",
+        "id": "662fe4be488002359788ab64"
+      },
+      {
+        "name": "sketch.js",
+        "content": "let w = 0;\nlet h = 0; \n\nfunction windowResized() {\n  resizeCanvas(windowWidth, windowHeight);\n}\n\nfunction setup() {\n  createCanvas(600, 450);\n  fullscreenButton = createButton(\"Full Screen\");\n  fullscreenButton.mousePressed(fullscreen);\n  setInterval(function(){\n    \n   w = 0;\n   h = 0;\n\n  }, 3000); \n}\n  \n  function draw() {\n   background(0); \n  fill(255, 120, 205);\n  push();\n  translate(width * 0.2, height * 0.3);\n  rotate(frameCount / -100.0);\n  star(w, h, 30, 70, 5);\n  pop();\n  \n  w++;\n  h++;\n    \n  fill (245, 217, 39);\n  push();\n  translate(width * 0.8, height * 0.5);\n  rotate(frameCount / -100.0);\n  star(w, h, 30, 70, 5);\n  pop();\n  \n    w++;\n    h++;\n  \n  fill(255);\n  noStroke();\n  push();\n  translate(width * 0.7, height * 0.2);\n  rotate(frameCount / 100.0);\n  star(w, h, 30, 70, 5);\n  pop();\n  \n  w--;\n  h--;\n    \n  fill(255);\n  noStroke();\n  push();\n  translate(width * 0.3, height * 0.8);\n  rotate(frameCount / 100.0);\n  star(w, h, 30, 70, 5);\n  pop();\n  \n  w++;\n  h++;\n  \n  fill(110, 117, 219);\n  push();\n  translate(width * 0.5, height * 0.5);\n  rotate(frameCount / 100.0);\n  star(0, 0, 30, 70, 5);\n  pop();\n}\n\n\n\nfunction star(x, y, radius1, radius2, npoints) {\n  let angle = TWO_PI / npoints;\n  let halfAngle = angle / 2.0;\n  beginShape();\n  for (let a = 0; a < TWO_PI; a += angle) {\n    let sx = x + cos(a) * radius2;\n    let sy = y + sin(a) * radius2;\n    vertex(sx, sy);\n    sx = x + cos(a + halfAngle) * radius1;\n    sy = y + sin(a + halfAngle) * radius1;\n    vertex(sx, sy);\n  }\n  endShape(CLOSE);\n}\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "662fe4be488002359788ab61",
+        "isSelectedFile": true,
+        "createdAt": "2024-04-30T12:49:40.163Z",
+        "updatedAt": "2024-04-30T12:49:40.163Z",
+        "id": "662fe4be488002359788ab61"
+      },
+      {
+        "name": "index.html",
+        "content": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.2/p5.js\"></script>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.2/addons/p5.sound.min.js\"></script>\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\">\n    <meta charset=\"utf-8\" />\n\n  </head>\n  <body>\n    <main>\n    </main>\n    <script src=\"sketch.js\"></script>\n  </body>\n</html>\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "662fe4be488002359788ab62",
+        "isSelectedFile": false,
+        "createdAt": "2024-04-30T12:49:40.163Z",
+        "updatedAt": "2024-04-30T12:49:40.163Z",
+        "id": "662fe4be488002359788ab62"
+      },
+      {
+        "name": "style.css",
+        "content": "html, body {\n  margin: 0;\n  padding: 0;\n}\ncanvas {\n  display: block;\n}\n",
+        "children": [],
+        "fileType": "file",
+        "_id": "662fe4be488002359788ab63",
+        "isSelectedFile": false,
+        "createdAt": "2024-04-30T12:49:40.163Z",
+        "updatedAt": "2024-04-30T12:49:40.163Z",
+        "id": "662fe4be488002359788ab63"
+      }
+    ],
+    "createdAt": "2024-04-29T18:37:59.489Z",
+    "id": "0CuwkpOYA"
   }
 ]

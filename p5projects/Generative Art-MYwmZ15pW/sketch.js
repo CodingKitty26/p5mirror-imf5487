@@ -47,8 +47,6 @@ function draw() {
   //  Red 2
   stroke("purple");
   arc(WIDTH / 2 + diameter + 2 * penSize, HEIGHT / 2 - diameter/4, diameter,diameter,PI/2,2*PI/3);
-  
-  
 
   
 }
